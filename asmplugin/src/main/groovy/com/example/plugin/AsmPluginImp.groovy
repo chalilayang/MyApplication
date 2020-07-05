@@ -9,8 +9,6 @@ class AsmPluginImp implements Plugin<Project> {
     void apply(Project project) {
         System.out.println("==LifeCyclePlugin gradle plugin==")
         def android = project.extensions.getByType(AppExtension)
-        println '----------- registering AutoTrackTransform  -----------'
-        LifeCycleTransform transform = new LifeCycleTransform()
-        android.registerTransform(transform)
+        android.registerTransform(new CostTimePlugin())
     }
 }
