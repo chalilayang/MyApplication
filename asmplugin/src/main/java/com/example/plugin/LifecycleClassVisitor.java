@@ -24,7 +24,7 @@ public class LifecycleClassVisitor extends ClassVisitor {
         System.out.println("ClassVisitor visitMethod name-------" + name + ", superName is " + superName);
         MethodVisitor mv = cv.visitMethod(access, name, desc, signature, exceptions);
 
-        if (superName.equals("android/support/v7/app/AppCompatActivity")) {
+        if (superName.equals("androidx/appcompat/app/AppCompatActivity")) {
             if (name.startsWith("onCreate")) {
                 //处理onCreate()方法
                 return new LifecycleMethodVisitor(mv, className, name);
